@@ -3,6 +3,7 @@ FROM node:24-alpine
 WORKDIR /app
 COPY package.json ./
 COPY server.mjs ./
+COPY questions.mjs ./
 COPY public ./public
 
 ENV NODE_ENV=production
