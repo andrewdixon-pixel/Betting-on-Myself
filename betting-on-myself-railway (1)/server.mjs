@@ -2,6 +2,7 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { randomBytes } from 'node:crypto';
+import QRCode from 'qrcode';
 import { questions, questionsForPack } from './questions.mjs';
 
 const PORT = Number(process.env.PORT || 3000);
@@ -29,7 +30,7 @@ function publicState(room, viewer) {
     question: room.question && { category: room.question.category, prompt: room.question.prompt, unit: room.question.unit, answer: reveal ? room.question.answer : null },
     players: room.players.map(p => ({ id: p.id, name: p.name, stack: p.stack, committed: p.committed, entered: p.entered, folded: p.folded, eliminated: p.eliminated, isHost: p.isHost, estimate: reveal ? p.estimate : undefined })),
     votes: room.votes, tiedIds: room.tiedIds || [], log: room.log.slice(-5), viewer: { id: viewer.id, name: viewer.name, stack: viewer.stack, isHost: viewer.isHost, estimate: viewer.estimate, committed: viewer.committed, entered: viewer.entered, folded: viewer.folded, canAct: room.turnPlayerId === viewer.id },
-    playerCount: room.players.length
+    playerCount: room.players.length, practice: Boolean(room.practice)
   };
 }
 function send(room) { for (const [token, res] of room.streams) { const p = room.players.find(x => x.token === token); if (p) res.write(`data: ${JSON.stringify(publicState(room, p))}\n\n`); } }
@@ -117,7 +118,8 @@ function startBetting(room) {
 }
 function applyAction(room, player, action, payload = {}) {
   if (action === 'vote' && room.phase === 'lobby') { room.votes[player.id] = payload.pack; log(room, `${player.name} voted for ${payload.pack}.`); return; }
-  if (action === 'start' && player.isHost && room.phase === 'lobby' && room.players.length >= 3) {
+  if (action === 'start' && player.isHost && room.phase === 'lobby' && (room.players.length >= 3 || payload.practice === true)) {
+    room.practice = payload.practice === true;
     room.gameStartedAt = Date.now(); room.timerMinutes = Number(payload.timerMinutes) || 0;
     const counts = Object.values(room.votes).reduce((all, pack) => ({ ...all, [pack]: (all[pack] || 0) + 1 }), {});
     room.pack = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0] || 'Mixed';
@@ -150,6 +152,15 @@ function applyAction(room, player, action, payload = {}) {
 function json(res, status, body) { res.writeHead(status, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(body)); }
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
+  if (req.method === 'GET' && url.pathname === '/api/qr') {
+    const data = url.searchParams.get('data');
+    if (!data || data.length > 2048) return json(res, 400, { error: 'Invalid QR data.' });
+    try {
+      const svg = await QRCode.toString(data, { type: 'svg', margin: 1, color: { dark: '#14231f', light: '#f7f0dd' } });
+      res.writeHead(200, { 'Content-Type': 'image/svg+xml', 'Cache-Control': 'no-store' });
+      return res.end(svg);
+    } catch { return json(res, 400, { error: 'Could not generate QR code.' }); }
+  }
   if (req.method === 'GET' && url.pathname === '/api/stream') { const { room, player } = roomForToken(url.searchParams.get('token')); if (!room) return json(res, 401, { error: 'Invalid session.' }); res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' }); room.streams.set(player.token, res); res.write(`data: ${JSON.stringify(publicState(room, player))}\n\n`); req.on('close', () => room.streams.delete(player.token)); return; }
   if (req.method === 'POST' && url.pathname.startsWith('/api/')) { let body = ''; for await (const chunk of req) body += chunk; try { body = JSON.parse(body || '{}'); } catch { return json(res, 400, { error: 'Invalid JSON.' }); }
     try {
