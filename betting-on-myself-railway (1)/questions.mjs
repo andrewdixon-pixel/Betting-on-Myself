@@ -1,52 +1,55 @@
 // Starter content. Sources are retained for editorial verification; the game reveal stays fast.
 export const questions = [
-  // Science (10)
-  { id: 'moon-diameter', category: 'Science', prompt: 'How many kilometers is the Moon’s diameter?', unit: 'kilometers', answer: 3475, source: 'NASA JPL' },
-  { id: 'moon-distance', category: 'Science', prompt: 'How many kilometers is the Moon’s average distance from Earth?', unit: 'kilometers', answer: 383500, source: 'NASA JPL' },
-  { id: 'mars-diameter', category: 'Science', prompt: 'How many kilometers is the diameter of Mars?', unit: 'kilometers', answer: 6779, source: 'NASA planetary fact sheet' },
-  { id: 'earth-diameter', category: 'Science', prompt: 'How many kilometers is Earth’s equatorial diameter?', unit: 'kilometers', answer: 12756, source: 'NASA planetary fact sheet' },
-  { id: 'volcanoes', category: 'Science', prompt: 'About how many volcano locations are listed in NOAA’s global database?', unit: 'volcanoes', answer: 1600, source: 'NOAA NCEI', answerType: 'accepted_estimate' },
-  { id: 'active-satellites', category: 'Science', prompt: 'About how many active satellites were orbiting Earth in 2024?', unit: 'satellites', answer: 10200, source: 'Union of Concerned Scientists satellite database', answerType: 'accepted_estimate' },
-  { id: 'human-genome', category: 'Science', prompt: 'About how many base pairs are in the human genome?', unit: 'base pairs', answer: 3200000000, source: 'National Human Genome Research Institute', answerType: 'accepted_estimate' },
-  { id: 'languages', category: 'Science', prompt: 'About how many living languages are spoken worldwide?', unit: 'languages', answer: 7000, source: 'Ethnologue', answerType: 'accepted_estimate' },
-  { id: 'bluemass', category: 'Science', prompt: 'About how many kilograms can an adult blue whale weigh?', unit: 'kilograms', answer: 180000, source: 'NOAA Fisheries', answerType: 'accepted_estimate' },
+  // Science (15)
+  { id: 'moon-distance-thousands', category: 'Science', prompt: 'About how many thousand miles away is the Moon from Earth on average?', unit: 'thousand miles', answer: 239, source: 'NASA Science', answerType: 'accepted_estimate' },
+  { id: 'moon-diameter-miles', category: 'Science', prompt: 'How many miles across is the Moon?', unit: 'miles', answer: 2159, source: 'NASA Glenn Research Center' },
+  { id: 'mars-day-minutes', category: 'Science', prompt: 'About how many minutes long is one day on Mars?', unit: 'minutes', answer: 1480, source: 'NASA JPL', answerType: 'accepted_estimate' },
+  { id: 'mars-diameter-miles', category: 'Science', prompt: 'How many miles across is Mars at its widest point?', unit: 'miles', answer: 4212, source: 'NASA JPL' },
+  { id: 'mars-temperature-f', category: 'Science', prompt: 'What is Mars’s average surface temperature in degrees Fahrenheit?', unit: 'degrees Fahrenheit', answer: -64, source: 'NASA JPL' },
+  { id: 'human-genome-billions', category: 'Science', prompt: 'About how many billion base pairs are in the human genome?', unit: 'billion base pairs', answer: 3.2, source: 'National Human Genome Research Institute', answerType: 'accepted_estimate' },
+  { id: 'active-satellites-thousands', category: 'Science', prompt: 'About how many thousand active satellites were orbiting Earth in 2024?', unit: 'thousand satellites', answer: 10.2, source: 'Union of Concerned Scientists satellite database', answerType: 'accepted_estimate' },
+  { id: 'volcanoes', category: 'Science', prompt: 'About how many volcanoes are listed in NOAA’s global volcano-location database?', unit: 'volcanoes', answer: 1600, source: 'NOAA NCEI', answerType: 'accepted_estimate' },
+  { id: 'blue-whale-weight', category: 'Science', prompt: 'About how many hundred thousand pounds can a blue whale weigh?', unit: 'hundred thousand pounds', answer: 3.3, source: 'NOAA Fisheries', answerType: 'accepted_estimate' },
   { id: 'redwoods', category: 'Science', prompt: 'About how many years can a giant sequoia live?', unit: 'years', answer: 3000, source: 'National Park Service', answerType: 'accepted_estimate' },
+  { id: 'light-speed-thousands', category: 'Science', prompt: 'About how many thousand miles does light travel in one second?', unit: 'thousand miles', answer: 186, source: 'NASA', answerType: 'accepted_estimate' },
+  { id: 'earth-age-billions', category: 'Science', prompt: 'About how many billion years old is Earth?', unit: 'billion years', answer: 4.5, source: 'U.S. Geological Survey', answerType: 'accepted_estimate' },
+  { id: 'species-millions', category: 'Science', prompt: 'About how many million species of plants, animals, and other life forms are estimated to exist on Earth?', unit: 'million species', answer: 8.7, source: 'Smithsonian National Museum of Natural History', answerType: 'accepted_estimate' },
+  { id: 'heartbeats-day', category: 'Science', prompt: 'About how many times does the average human heart beat in one day?', unit: 'heartbeats', answer: 100000, source: 'American Heart Association', answerType: 'accepted_estimate' },
+  { id: 'olympus-mons-height', category: 'Science', prompt: 'About how many miles high is Olympus Mons, the tallest volcano on Mars?', unit: 'miles', answer: 16, source: 'NASA JPL', answerType: 'accepted_estimate' },
 
-  // History (10)
-  { id: 'great-wall', category: 'History', prompt: 'How many kilometers long is the Great Wall of China, including all sections?', unit: 'kilometers', answer: 21196, source: 'UNESCO / Chinese State Administration of Cultural Heritage' },
+  // History (15)
+  { id: 'great-wall-miles', category: 'History', prompt: 'About how many miles long is the Great Wall of China, including all sections?', unit: 'miles', answer: 13171, source: 'UNESCO / Chinese State Administration of Cultural Heritage', answerType: 'accepted_estimate' },
   { id: 'eiffel-steps', category: 'History', prompt: 'How many steps are there to the top of the Eiffel Tower?', unit: 'steps', answer: 1665, source: 'Société d’Exploitation de la Tour Eiffel' },
-  { id: 'us-population-2020', category: 'History', prompt: 'What was the United States population in the 2020 Census?', unit: 'people', answer: 331449281, source: 'U.S. Census Bureau' },
-  { id: 'wwi-days', category: 'History', prompt: 'How many days did World War I last, from July 28, 1914 to November 11, 1918?', unit: 'days', answer: 1566, source: 'Historical calendar calculation' },
+  { id: 'us-population-2020-millions', category: 'History', prompt: 'About how many million people was the U.S. population based on the 2020 Census?', unit: 'million people', answer: 331, source: 'U.S. Census Bureau', answerType: 'accepted_estimate' },
+  { id: 'wwi-days', category: 'History', prompt: 'How many days did World War I last?', unit: 'days', answer: 1566, source: 'Historical calendar calculation' },
   { id: 'constitution-words', category: 'History', prompt: 'About how many words are in the U.S. Constitution, including amendments?', unit: 'words', answer: 7591, source: 'National Archives', answerType: 'accepted_estimate' },
-  { id: 'louvre-artworks', category: 'History', prompt: 'About how many works of art does the Louvre manage?', unit: 'works', answer: 615000, source: 'Musée du Louvre', answerType: 'accepted_estimate' },
+  { id: 'louvre-artworks-thousands', category: 'History', prompt: 'About how many thousand works of art does the Louvre manage?', unit: 'thousand works', answer: 615, source: 'Musée du Louvre', answerType: 'accepted_estimate' },
   { id: 'terracotta-warriors', category: 'History', prompt: 'About how many Terracotta Army figures have been found near Xi’an?', unit: 'figures', answer: 8000, source: 'UNESCO', answerType: 'accepted_estimate' },
   { id: 'boston-tea-chests', category: 'History', prompt: 'How many tea chests were thrown into Boston Harbor during the Boston Tea Party?', unit: 'tea chests', answer: 342, source: 'Boston Tea Party Ships & Museum' },
   { id: 'great-fire-houses', category: 'History', prompt: 'About how many houses were destroyed in the Great Fire of London?', unit: 'houses', answer: 13200, source: 'Museum of London', answerType: 'accepted_estimate' },
-  { id: 'roman-roads', category: 'History', prompt: 'About how many kilometers of paved roads did the Roman Empire build?', unit: 'kilometers', answer: 80000, source: 'Encyclopaedia Britannica', answerType: 'accepted_estimate' },
+  { id: 'roman-roads-miles', category: 'History', prompt: 'About how many miles of paved roads did the Roman Empire build?', unit: 'miles', answer: 50000, source: 'Encyclopaedia Britannica', answerType: 'accepted_estimate' },
+  { id: 'mayflower-passengers', category: 'History', prompt: 'How many passengers were aboard the Mayflower when it left England?', unit: 'passengers', answer: 102, source: 'Pilgrim Hall Museum' },
+  { id: 'liberty-bell-weight', category: 'History', prompt: 'How many pounds did the Liberty Bell weigh when it was cast?', unit: 'pounds', answer: 2080, source: 'National Park Service' },
+  { id: 'statue-liberty-height', category: 'History', prompt: 'How many feet tall is the Statue of Liberty from the ground to the tip of the torch?', unit: 'feet', answer: 305, source: 'National Park Service' },
+  { id: 'gutenberg-bible-pages', category: 'History', prompt: 'How many pages were in the original Gutenberg Bible?', unit: 'pages', answer: 1286, source: 'Library of Congress' },
+  { id: 'lewis-clark-days', category: 'History', prompt: 'How many days did the Lewis and Clark Expedition last?', unit: 'days', answer: 863, source: 'National Park Service' },
 
-  // Geography (10)
-  { id: 'antarctica-area', category: 'Geography', prompt: 'About how many square kilometers is Antarctica?', unit: 'square kilometers', answer: 14000000, source: 'British Antarctic Survey', answerType: 'accepted_estimate' },
-  { id: 'sahara-area', category: 'Geography', prompt: 'About how many square kilometers is the Sahara Desert?', unit: 'square kilometers', answer: 9200000, source: 'Encyclopaedia Britannica', answerType: 'accepted_estimate' },
-  { id: 'everest-height', category: 'Geography', prompt: 'How many meters above sea level is Mount Everest?', unit: 'meters', answer: 8849, source: 'Survey Department of Nepal' },
-  { id: 'mariana-depth', category: 'Geography', prompt: 'About how many meters deep is Challenger Deep in the Mariana Trench?', unit: 'meters', answer: 10935, source: 'NOAA Ocean Exploration', answerType: 'accepted_estimate' },
-  { id: 'canada-coast', category: 'Geography', prompt: 'About how many kilometers of coastline does Canada have?', unit: 'kilometers', answer: 202080, source: 'Natural Resources Canada', answerType: 'accepted_estimate' },
-  { id: 'amazon-length', category: 'Geography', prompt: 'About how many kilometers long is the Amazon River?', unit: 'kilometers', answer: 6400, source: 'Encyclopaedia Britannica', answerType: 'accepted_estimate' },
-  { id: 'greenland-area', category: 'Geography', prompt: 'How many square kilometers is Greenland?', unit: 'square kilometers', answer: 2166086, source: 'CIA World Factbook' },
-  { id: 'baikal-volume', category: 'Geography', prompt: 'About how many cubic kilometers of water does Lake Baikal contain?', unit: 'cubic kilometers', answer: 23615, source: 'UNESCO', answerType: 'accepted_estimate' },
-  { id: 'australia-coast', category: 'Geography', prompt: 'About how many kilometers of mainland coastline does Australia have?', unit: 'kilometers', answer: 34218, source: 'Geoscience Australia', answerType: 'accepted_estimate' },
-  { id: 'victoria-area', category: 'Geography', prompt: 'About how many square kilometers is Lake Victoria?', unit: 'square kilometers', answer: 68800, source: 'Encyclopaedia Britannica', answerType: 'accepted_estimate' },
-
-  // Sports (10)
-  { id: 'paris-athletes', category: 'Sports', prompt: 'About how many athletes competed at the Paris 2024 Summer Olympics?', unit: 'athletes', answer: 10714, source: 'International Olympic Committee', answerType: 'accepted_estimate' },
-  { id: 'marathon-meters', category: 'Sports', prompt: 'How many meters is an official marathon?', unit: 'meters', answer: 42195, source: 'World Athletics' },
-  { id: 'golf-holes', category: 'Sports', prompt: 'How many holes were played in the longest professional golf playoff on the PGA Tour?', unit: 'holes', answer: 11, source: 'PGA Tour' },
-  { id: 'world-cup-trophy', category: 'Sports', prompt: 'How many centimeters tall is the FIFA World Cup Trophy?', unit: 'centimeters', answer: 36.8, source: 'FIFA' },
-  { id: 'stanley-cup-height', category: 'Sports', prompt: 'How many centimeters tall is the Stanley Cup?', unit: 'centimeters', answer: 89.54, source: 'Hockey Hall of Fame' },
-  { id: 'mlb-mound-distance', category: 'Sports', prompt: 'How many inches are there from the pitching rubber to home plate in Major League Baseball?', unit: 'inches', answer: 726, source: 'Official Baseball Rules' },
+  // Sports (15)
+  { id: 'paris-athletes-thousands', category: 'Sports', prompt: 'About how many thousand athletes competed at the Paris 2024 Summer Olympics?', unit: 'thousand athletes', answer: 10.7, source: 'International Olympic Committee', answerType: 'accepted_estimate' },
+  { id: 'marathon-miles', category: 'Sports', prompt: 'How many miles is an official marathon?', unit: 'miles', answer: 26.2, source: 'World Athletics' },
+  { id: 'golf-playoff-holes', category: 'Sports', prompt: 'How many holes were played in the longest PGA Tour playoff?', unit: 'holes', answer: 11, source: 'PGA Tour' },
+  { id: 'world-cup-trophy-inches', category: 'Sports', prompt: 'How many inches tall is the FIFA World Cup Trophy?', unit: 'inches', answer: 14.5, source: 'FIFA' },
+  { id: 'stanley-cup-inches', category: 'Sports', prompt: 'How many inches tall is the Stanley Cup?', unit: 'inches', answer: 35.25, source: 'Hockey Hall of Fame' },
+  { id: 'mlb-mound-distance-feet', category: 'Sports', prompt: 'How many feet are there from the pitching rubber to home plate in Major League Baseball?', unit: 'feet', answer: 60.5, source: 'Official Baseball Rules' },
   { id: 'nhl-rink-area', category: 'Sports', prompt: 'How many square feet is a standard NHL rink surface?', unit: 'square feet', answer: 17000, source: 'NHL rulebook' },
-  { id: 'football-field', category: 'Sports', prompt: 'How many yards long is an American football field including both end zones?', unit: 'yards', answer: 120, source: 'NFL rulebook' },
-  { id: 'basketball-rim', category: 'Sports', prompt: 'How many inches is the inside diameter of a regulation basketball rim?', unit: 'inches', answer: 18, source: 'NBA rulebook' },
-  { id: 'tennis-court', category: 'Sports', prompt: 'How many feet long is a regulation tennis court?', unit: 'feet', answer: 78, source: 'International Tennis Federation' }
+  { id: 'football-field-yards', category: 'Sports', prompt: 'How many yards long is an American football field including both end zones?', unit: 'yards', answer: 120, source: 'NFL rulebook' },
+  { id: 'basketball-rim-inches', category: 'Sports', prompt: 'How many inches is the inside diameter of a regulation basketball rim?', unit: 'inches', answer: 18, source: 'NBA rulebook' },
+  { id: 'tennis-court-feet', category: 'Sports', prompt: 'How many feet long is a regulation tennis court?', unit: 'feet', answer: 78, source: 'International Tennis Federation' },
+  { id: 'golf-hole-inches', category: 'Sports', prompt: 'How many inches wide is a regulation golf hole?', unit: 'inches', answer: 4.25, source: 'USGA' },
+  { id: 'bowling-ball-pounds', category: 'Sports', prompt: 'What is the maximum weight, in pounds, of a regulation bowling ball?', unit: 'pounds', answer: 16, source: 'United States Bowling Congress' },
+  { id: 'baseball-stitches', category: 'Sports', prompt: 'How many stitches are on a regulation Major League Baseball?', unit: 'stitches', answer: 108, source: 'Major League Baseball' },
+  { id: 'nfl-goalpost-width', category: 'Sports', prompt: 'How many feet wide are NFL goalposts?', unit: 'feet', answer: 18.5, source: 'NFL rulebook' },
+  { id: 'hockey-puck-ounces', category: 'Sports', prompt: 'How many ounces can a regulation hockey puck weigh at most?', unit: 'ounces', answer: 6, source: 'NHL rulebook' }
 ];
 
 export function questionsForPack(pack) {
